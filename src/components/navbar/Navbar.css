@@ -9,6 +9,7 @@
     z-index: 4;
     opacity: 1;
     background-color: var(--main);
+    transition: all.2s;
 }
 
 .titles {
@@ -25,6 +26,7 @@
     max-width: 200px;
     border-top: .4em solid transparent;
     text-transform: uppercase;
+    user-select: none;
 }
 
 #disconnect {
@@ -96,6 +98,7 @@
         text-decoration: none;
         color: var(--light);
         font-size: 1.4em;
+        user-select: none;
     }
 
     .titles {

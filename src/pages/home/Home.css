@@ -1,0 +1,116 @@
+.card {
+    position: relative;
+    background-color: rgb(251, 252, 246, .1);
+    height: fit-content;
+    padding: 1em;
+    width: 90vw;
+    max-width: 750px;
+    border-radius: 9px 9px 0 0;
+    margin: 0 auto;
+}
+
+.big {
+    margin-bottom: 4vw auto;
+    height: auto;
+    overflow-y: visible;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    border-radius: 0 0 9px 9px;
+    gap: 15px;
+}
+
+#button,
+.sync {
+    margin-left: auto;
+    margin-right: auto;
+    margin: 15px auto;
+    border-radius: 9px;
+    padding: 9px;
+}
+
+#button {
+    left: 0;
+    width: 200px;
+    background-color: var(--dark);
+    color: var(--light);
+    font-size: 1.7em;
+    border: none;
+}
+
+.sync {
+    color: var(--main-plus);
+    max-width: 92vw;
+    font-size: 1.4em;
+    background-color: transparent;
+    border: .1em solid var(--main-plus);
+    margin-bottom: 4vw;
+}
+
+#input {
+    width: calc(90vw + 32px);
+    max-width: 782px !important;
+    color: var(--light);
+    font-size: 2em;
+}
+
+#button:hover,
+.sync:hover {
+    cursor: pointer;
+}
+
+#button:hover {
+    background-color: var(--dark);
+}
+
+.sync:hover {
+    background-color: rgb(0, 122, 112, .2);
+}
+
+.card span,
+.card input {
+    padding: 9px;
+    border-radius: 9px;
+    border: .1em solid var(--light);
+    height: fit-content;
+    color: var(--light);
+    font-size: 1.2em;
+}
+
+.card span {
+    width: fit-content;
+}
+
+.card span:hover {
+    cursor: pointer;
+    animation: tremble .07s infinite;
+    animation-timing-function: linear;
+    border-color: crimson;
+    color: crimson;
+}
+
+@keyframes tremble {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    44% {
+        transform: rotateZ(2deg) translateX(3px);
+    }
+
+    81% {
+        transform: rotateZ(-2deg) translateX(-3px);
+    }
+
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
+
+.card input {
+    width: calc(100% - 1em);
+}
+
+input {
+    opacity: 1 !important;
+}

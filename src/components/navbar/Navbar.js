@@ -39,25 +39,6 @@ function Navbar() {
         }
     }
 
-    if (window.innerWidth > 950) {
-        var prevScrollpos = window.pageYOffset;
-        window.onscroll = function () {
-            var currentScrollPos = window.pageYOffset;
-            if (prevScrollpos > currentScrollPos) {
-                document.getElementById("Navbar").style.top = "0";
-                document.getElementById("Navbar").style.left = "0vw";
-                document.getElementById("Navbar").style.width = "100vw";
-                document.getElementById("Navbar").style.transform = "scale(100%)";
-            } else {
-                document.getElementById("Navbar").style.top = "-1.5vh";
-                document.getElementById("Navbar").style.left = "-50vw";
-                document.getElementById("Navbar").style.width = "200vw";
-                document.getElementById("Navbar").style.transform = "scale(75%)";
-            }
-            prevScrollpos = currentScrollPos;
-        }
-    }
-
     return (
         <div id="Navbar">
             <div className="titles">

@@ -1,0 +1,191 @@
+#Navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100vw;
+    display: flex;
+    text-align: center;
+    z-index: 4;
+    opacity: 1;
+    background-color: var(--main);
+    transition: all.4s;
+}
+
+.titles {
+    display: flex;
+    height: 100%;
+    width: 100vw;
+}
+
+.titles a {
+    text-decoration: none;
+    color: var(--light);
+    font-weight: 400;
+    width: 25%;
+    max-width: 200px;
+    border-top: .4em solid transparent;
+    text-transform: uppercase;
+}
+
+#disconnect {
+    float: right;
+    background-color: var(--dark);
+    border: none;
+    margin: .4em;
+    height: fit-content;
+    border-radius: 10vh;
+}
+
+@media only screen and (max-width: 950px) {
+
+    #Navbar {
+        display: flex;
+        height: 10vh;
+        border-bottom: .2em solid var(--light);
+    }
+
+    .notel {
+        display: none;
+    }
+
+    #hamburger,
+    #cross {
+        filter: invert(1);
+        pointer-events: all !important;
+        user-select: all !important;
+        position: relative;
+        float: left !important;
+        margin: 1.5vh;
+        height: 7vh !important;
+        width: 7vh !important;
+        background-color: transparent;
+        border: none;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    #hamburger {
+        background-size: 100%;
+        background-image: url("../../images/hamburger.png");
+    }
+
+    #cross {
+        display: none;
+        background-size: 50%;
+        background-image: url("../../images/cross.png");
+    }
+
+    #hamburger:hover,
+    #cross:hover {
+        cursor: pointer;
+    }
+
+    #scrolled {
+        display: none;
+        position: absolute;
+        top: 12vh;
+        height: 45vh;
+        width: 100%;
+        text-align: center;
+        background-color: transparent;
+        align-items: center;
+        vertical-align: middle;
+    }
+
+    #scrolled a {
+        text-decoration: none;
+        color: var(--light);
+        font-size: 1.4em;
+    }
+
+    .titles {
+        width: 100%;
+        display: block;
+    }
+
+    .titles a {
+        display: none;
+    }
+
+    .titles #login {
+        float: right;
+        font-size: 1.2em;
+        font-weight: bold;
+        line-height: 5vh;
+        display: block;
+        border: .1em solid var(--light);
+        margin: 1.2em;
+        margin-top: .4em;
+        min-width: fit-content;
+        border-radius: 10vh;
+    }
+
+    #disconnect {
+        padding: 1em;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+}
+
+@media only screen and (min-width: 950px) {
+
+    #Navbar {
+        display: inline-flex;
+        height: 6vh;
+    }
+
+    #logo {
+        margin-left: 25px;
+    }
+
+    #hamburger,
+    #cross,
+    #scrolled {
+        display: none;
+    }
+
+    .titles a {
+        float: left;
+        font-size: 1.2em;
+        line-height: 6vh;
+        margin: 0 44px;
+        transition: all.1s;
+    }
+
+    .titles a:hover {
+        cursor: pointer;
+        border-top: .4em solid var(--light);
+    }
+
+    .co {
+        width: fit-content;
+        margin-left: auto !important;
+        order: 2;
+    }
+
+    #login,
+    #disconnect {
+        width: 200px;
+        margin-left: 22px;
+        margin-right: 22px;
+    }
+
+    #login {
+        margin: .3em;
+        padding: 0;
+        height: fit-content;
+        border: .1em solid var(--light);
+        border-radius: 10vh;
+    }
+
+    #login:hover {
+        background-color: rgb(251, 252, 246, .25);
+    }
+
+    #disconnect:hover {
+        filter: contrast(1.4);
+    }
+
+}

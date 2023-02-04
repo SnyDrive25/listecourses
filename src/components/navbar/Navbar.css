@@ -56,7 +56,7 @@
 
     #hamburger,
     #cross {
-        filter: invert(1);
+        filter: sepia(5) hue-rotate(185deg);
         pointer-events: all !important;
         user-select: all !important;
         position: relative;

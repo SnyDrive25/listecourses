@@ -55,7 +55,7 @@ function Navbar() {
                 <a href="../" id="home">Accueil</a>
                 <a href="../about" id="about">A propos</a>
                 <a href="../connexion" id="login" className="notel">Connexion</a>
-                <a href="../deconnexion" id="disconnect">Deconnexion</a>
+                <a href="../deconnexion" className="light" id="disconnect">Deconnexion</a>
             </div>
         </div>
     );

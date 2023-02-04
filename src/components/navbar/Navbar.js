@@ -10,10 +10,10 @@ function Navbar() {
     setTimeout(() => {
         switch (path) {
             case (''):
-                document.getElementById("home").style.borderTop = ".4em solid var(--light)";
+                document.getElementById("home").style.borderTop = ".4em solid var(--dark)";
                 break;
             case ('about'):
-                document.getElementById("about").style.borderTop = ".4em solid var(--light)";
+                document.getElementById("about").style.borderTop = ".4em solid var(--dark)";
                 break;
             default:
                 break;
@@ -48,7 +48,7 @@ function Navbar() {
                 <span id="cross" onClick={() => biggerNav()}></span>
                 <p className="co">
                     <a href="../connexion" id="login">Connexion</a>
-                    <a href="../deconnexion" id="disconnect">Deconnexion</a>
+                    <a href="../deconnexion" className="light" id="disconnect">Deconnexion</a>
                 </p>
             </div>
             <div id="scrolled">

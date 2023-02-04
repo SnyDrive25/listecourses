@@ -64,16 +64,16 @@
 }
 
 .sync:hover {
-    background-color: rgb(0, 122, 112, .2);
+    background-color: rgb(207, 181, 61, .17);
 }
 
 .card span,
 .card input {
     padding: 9px;
     border-radius: 9px;
-    border: .1em solid var(--light);
+    border: .1em solid var(--dark);
     height: fit-content;
-    color: var(--light);
+    color: var(--dark);
     font-size: 1.2em;
 }
 
@@ -118,4 +118,20 @@
 
 input {
     opacity: 1 !important;
+}
+
+@media only screen and (min-width: 1200px) {
+
+    .minion {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        height: 30vh;
+        width: 44vh;
+        background-image: url(../../images/minions.png);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
 }

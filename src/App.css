@@ -4,7 +4,15 @@
 }
 
 h1 {
-  color: var(--light);
+  color: var(--dark);
   font-weight: 500;
   margin-bottom: 5vw;
+}
+
+a,
+p,
+span,
+input,
+div {
+  color: var(--dark);
 }

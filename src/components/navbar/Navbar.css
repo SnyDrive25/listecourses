@@ -20,13 +20,17 @@
 
 .titles a {
     text-decoration: none;
-    color: var(--light);
+    color: var(--dark);
     font-weight: 400;
     width: 25%;
     max-width: 200px;
     border-top: .4em solid transparent;
     text-transform: uppercase;
     user-select: none;
+}
+
+.light {
+    color: var(--light) !important;
 }
 
 #disconnect {
@@ -43,7 +47,7 @@
     #Navbar {
         display: flex;
         height: 10vh;
-        border-bottom: .2em solid var(--light);
+        border-bottom: .2em solid var(--dark);
     }
 
     .notel {
@@ -96,7 +100,7 @@
 
     #scrolled a {
         text-decoration: none;
-        color: var(--light);
+        color: var(--dark);
         font-size: 1.4em;
         user-select: none;
     }
@@ -116,7 +120,7 @@
         font-weight: bold;
         line-height: 5vh;
         display: block;
-        border: .1em solid var(--light);
+        border: .1em solid var(--dark);
         margin: 1em;
         margin-top: .1em;
         min-width: 150px;
@@ -157,7 +161,7 @@
 
     .titles a:hover {
         cursor: pointer;
-        border-top: .4em solid var(--light);
+        border-top: .4em solid var(--dark);
     }
 
     .co {
@@ -177,12 +181,12 @@
         margin: .3em;
         padding: 0;
         height: fit-content;
-        border: .1em solid var(--light);
+        border: .1em solid var(--dark);
         border-radius: 10vh;
     }
 
     #login:hover {
-        background-color: rgb(251, 252, 246, .25);
+        background-color: rgb(29, 38, 70, .17);
     }
 
     #disconnect:hover {

@@ -9,15 +9,15 @@ function Home() {
   localStorage.setItem("liste", JSON.stringify(liste));
 
   setInterval(function () {
-    let div = document.getElementById("card");
-    let spans = div.getElementsByTagName("span");
-    let textArray = [];
-    for (let i = 0; i < spans.length; i++) {
-      textArray.push(spans[i].textContent);
-    }
-    if (textArray.length >= JSON.parse(localStorage.getItem("liste")).length) {
-      window.done = true;
-      setListe(textArray);
+    // let div = document.getElementById("card");
+    // let spans = div.getElementsByTagName("span");
+    // let textArray = [];
+    // for (let i = 0; i < spans.length; i++) {
+    //   textArray.push(spans[i].textContent);
+    // }
+    //if (textArray.length >= JSON.parse(localStorage.getItem("liste")).length) {
+    if (JSON.parse(localStorage.getItem("liste")) !== undefined) {
+      setListe(JSON.parse(localStorage.getItem("liste")));
     }
   }, 500);
 
@@ -79,6 +79,7 @@ function Home() {
         <button id="button" onClick={() => search()}>Ajouter</button>
       </div>
       <div className='card big' id="card"></div>
+      <div className='minion'></div>
     </ div >
   );
 }

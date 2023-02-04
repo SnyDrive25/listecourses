@@ -26,9 +26,9 @@ function Home() {
     let ptags = div.getElementsByTagName("p");
     let textArray = [];
 
-    if (ptags.length === 0 && localStorage.getItem("liste") !== undefined && localStorage.getItem("liste") !== null) {
+    if (ptags.length === 0 && localStorage.getItem("liste") !== undefined) {
 
-      if (JSON.parse(localStorage.getItem("liste")).length !== 0) {
+      if (JSON.parse(localStorage.getItem("liste")) !== null && JSON.parse(localStorage.getItem("liste")).length !== 0) {
 
         const retrievedArray = JSON.parse(localStorage.getItem('liste'));
 

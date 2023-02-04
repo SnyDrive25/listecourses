@@ -1,0 +1,127 @@
+#connexion {
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px 0;
+    background-color: var(--dark);
+    border: none;
+    box-shadow: 0 1em 4em var(--dark);
+    height: 650px;
+    max-height: 90vh;
+    min-height: fit-content;
+    width: 95vw;
+    max-width: 500px;
+    filter: hue-rotate(0deg);
+    border-radius: 44% 44% 100% 100%;
+    transition: all.2s;
+}
+
+
+@media only screen and (min-width: 700px) {
+
+    #connexion {
+        animation: flow 4s infinite;
+        animation-timing-function: ease;
+    }
+
+    @keyframes flow {
+        0% {
+            box-shadow: 0 1em 4em var(--dark);
+            transform: translateY(0em);
+            filter: hue-rotate(0deg);
+        }
+
+        50% {
+            box-shadow: 0 .3em 1.2em var(--dark);
+            transform: translateY(.7em);
+            filter: hue-rotate(17deg);
+        }
+
+        100% {
+            box-shadow: 0 1em 4em var(--dark);
+            transform: translateY(0em);
+            filter: hue-rotate(0deg);
+        }
+    }
+
+}
+
+#connexion div {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#connexion p {
+    margin: 100px auto;
+    width: 40%;
+    min-width: 150px;
+    position: relative;
+    background: transparent;
+    text-align: center;
+    color: var(--main-plus);
+    padding-top: 1.4em;
+}
+
+.button {
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 1em;
+    font-size: 1.4em;
+    background-color: rgb(251, 252, 246, .17);
+    border: .1em solid transparent;
+    border-radius: 0;
+    border-bottom: .1em solid var(--light);
+    color: var(--light);
+    transition: all.2s;
+}
+
+.button:hover,
+.button:target,
+.button:active,
+.button:focus {
+    cursor: pointer;
+    background-color: transparent;
+    border-radius: 100%;
+    padding: 2em;
+    transform: translateY(-1em);
+    border: .1em solid var(--light);
+    color: transparent;
+    outline: none;
+    margin-bottom: -2em;
+}
+
+#connexion p label {
+    position: absolute;
+    z-index: 1;
+    top: 0em;
+    left: 0;
+    color: var(--light);
+    background-color: transparent;
+}
+
+#connexion p input {
+    color: var(--light);
+    width: calc(100% - .8em);
+    border: none;
+    border-radius: 0px;
+    border-bottom: .1em solid var(--light);
+    background-color: #435a6f;
+    padding: .4em;
+    padding-top: .8em;
+    text-align: center;
+}
+
+#connexion p input:focus,
+#connexion p input:active,
+#connexion p input:target {
+    background-color: var(--dark);
+    border-radius: 1% 1% 50% 50%;
+}
+
+.infos {
+    font-size: 1.4em;
+}
+
+.infos a {
+    color: var(--main);
+}

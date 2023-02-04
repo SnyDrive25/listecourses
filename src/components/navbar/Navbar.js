@@ -47,15 +47,15 @@ function Navbar() {
                 <span id="hamburger" onClick={() => biggerNav()}></span>
                 <span id="cross" onClick={() => biggerNav()}></span>
                 <p className="co">
-                    <a href="../login" id="login">Connexion</a>
-                    <a href="../disconnect" id="disconnect">Deconnexion</a>
+                    <a href="../connexion" id="login">Connexion</a>
+                    <a href="../deconnexion" id="disconnect">Deconnexion</a>
                 </p>
             </div>
             <div id="scrolled">
                 <a href="../" id="home">Accueil</a>
                 <a href="../about" id="about">A propos</a>
-                <a href="../login" id="login" className="notel">Connexion</a>
-                <a href="../disconnect" id="disconnect">Deconnexion</a>
+                <a href="../connexion" id="login" className="notel">Connexion</a>
+                <a href="../deconnexion" id="disconnect">Deconnexion</a>
             </div>
         </div>
     );

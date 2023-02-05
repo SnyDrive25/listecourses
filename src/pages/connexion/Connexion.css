@@ -111,7 +111,7 @@
 #connexion p input:active,
 #connexion p input:target {
     background-color: var(--main);
-    border-radius: 1% 1% 50% 50%;
+    border-radius: 1% 1% 40% 40%;
 }
 
 .infos {

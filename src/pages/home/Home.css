@@ -56,7 +56,7 @@
 }
 
 #button:hover {
-    background-color: var(--dark);
+    filter: contrast(1.4);
 }
 
 .sync:hover {

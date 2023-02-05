@@ -90,6 +90,17 @@ function Home() {
 
   }, 1000);
 
+  function deleteAll() {
+
+    let div = document.getElementById("card");
+    let ptags = div.getElementsByTagName("p");
+
+    while (ptags.length > 0) {
+      ptags[0].parentNode.removeChild(ptags[0]);
+    }
+
+  }
+
   function search() {
 
     var element = document.getElementById("new_element").value.replace(/[^a-zA-Z0-9\s]/g, "");
@@ -156,7 +167,8 @@ function Home() {
         <input type="text" placeholder='Oignons, Poulet, Jus, ...' id="new_element"></input>
         <input type="number" placeholder='Ex : 4' id="quantite"></input>
 
-        <button id="button" onClick={() => search()}>Ajouter</button>
+        <button className="btn blue" id="button" onClick={() => search()}>Ajouter <strong>+</strong></button>
+        <button className="btn red" onClick={() => deleteAll()}>Delete All <strong>🗑</strong></button>
 
         <div className='separator'></div>
 

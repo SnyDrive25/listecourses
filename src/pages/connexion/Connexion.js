@@ -9,11 +9,11 @@ function Connexion() {
             <div>
                 <p>
                     <label>Pseudo</label>
-                    <input id="email" name="email"></input>
+                    <input type="text" id="pseudo" name="pseudo"></input>
                 </p>
                 <p>
                     <label>Mot de passe</label>
-                    <input id="mdp" name="mdp"></input>
+                    <input type="password" id="mdp" name="mdp"></input>
                 </p>
             </div>
             <div>

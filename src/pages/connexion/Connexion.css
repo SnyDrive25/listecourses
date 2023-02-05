@@ -1,21 +1,20 @@
 #connexion {
-    margin-top: 150px;
+    margin-top: 12vh;
     margin-left: auto;
     margin-right: auto;
     padding: 25px 0;
-    background-color: var(--dark);
+    background-color: var(--main);
     border: none;
-    box-shadow: 0 1em 4em var(--dark);
-    height: 650px;
-    max-height: 90vh;
+    box-shadow: 0 1em 4em var(--main-plus);
+    height: 600px;
+    max-height: 80vh;
     min-height: fit-content;
     width: 95vw;
     max-width: 500px;
     filter: hue-rotate(0deg);
-    border-radius: 44% 44% 100% 100%;
+    border-radius: 2em;
     transition: all.2s;
 }
-
 
 @media only screen and (min-width: 700px) {
 
@@ -26,21 +25,18 @@
 
     @keyframes flow {
         0% {
-            box-shadow: 0 1em 4em var(--dark);
+            box-shadow: 0 1em 4em var(--main-plus);
             transform: translateY(0em);
-            filter: hue-rotate(0deg);
         }
 
         50% {
-            box-shadow: 0 .3em 1.2em var(--dark);
+            box-shadow: 0 .3em 1.2em var(--main-plus);
             transform: translateY(.7em);
-            filter: hue-rotate(17deg);
         }
 
         100% {
-            box-shadow: 0 1em 4em var(--dark);
+            box-shadow: 0 1em 4em var(--main-plus);
             transform: translateY(0em);
-            filter: hue-rotate(0deg);
         }
     }
 
@@ -70,8 +66,8 @@
     background-color: rgb(251, 252, 246, .17);
     border: .1em solid transparent;
     border-radius: 0;
-    border-bottom: .1em solid var(--light);
-    color: var(--light);
+    border-bottom: .1em solid var(--main-plus);
+    color: var(--main-plus);
     transition: all.2s;
 }
 
@@ -84,7 +80,7 @@
     border-radius: 100%;
     padding: 2em;
     transform: translateY(-1em);
-    border: .1em solid var(--light);
+    border: .1em solid var(--main-plus);
     color: transparent;
     outline: none;
     margin-bottom: -2em;
@@ -95,17 +91,17 @@
     z-index: 1;
     top: 0em;
     left: 0;
-    color: var(--light);
+    color: var(--main-plus);
     background-color: transparent;
 }
 
 #connexion p input {
-    color: var(--light);
+    color: var(--main-plus);
     width: calc(100% - .8em);
     border: none;
     border-radius: 0px;
-    border-bottom: .1em solid var(--light);
-    background-color: #435a6f;
+    border-bottom: .1em solid var(--main-plus);
+    background-color: rgb(251, 252, 246, .17);
     padding: .4em;
     padding-top: .8em;
     text-align: center;
@@ -114,14 +110,16 @@
 #connexion p input:focus,
 #connexion p input:active,
 #connexion p input:target {
-    background-color: var(--dark);
+    background-color: var(--main);
     border-radius: 1% 1% 50% 50%;
 }
 
 .infos {
+    margin: 0 auto !important;
+    margin-top: 17px !important;
     font-size: 1.4em;
 }
 
 .infos a {
-    color: var(--main);
+    color: var(--dark);
 }

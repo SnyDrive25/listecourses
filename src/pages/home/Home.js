@@ -6,6 +6,9 @@ function Home() {
 
   var [liste, setListe] = useState([]);
 
+
+  // Si le localStorage n'existe pas ou que sa taille est nulle, on l'initialise à un tableau nul, sinon, on y touche pas !
+
   if (localStorage.getItem("liste") === undefined || localStorage.getItem("liste") === null) {
 
     localStorage.setItem("liste", JSON.stringify([]));
@@ -16,9 +19,15 @@ function Home() {
     if (JSON.parse(localStorage.getItem("liste").length) === 0) {
 
       localStorage.setItem("liste", JSON.stringify([]));
+
     }
 
   }
+
+
+  // on regarde s'il y a des éléments affichés sur le HTML
+  // si oui : on ne fait rien
+  // si non : si la liste dans le localStorage existe, on agrémente le HTML avec les éléments du localStorage
 
   setTimeout(() => {
 
@@ -47,6 +56,10 @@ function Home() {
 
   }, 25);
 
+
+  // Toutes les secondes, le navigateur va ensuite vérifier si les données du HTML ont la même taille que celles du localStorage
+  // Si non, on actualise le localStorage
+
   setInterval(() => {
 
     let div = document.getElementById("card");
@@ -65,6 +78,7 @@ function Home() {
         localStorage.setItem("liste", JSON.stringify(textArray));
 
       }
+
       else {
 
         setListe(textArray);
@@ -132,17 +146,28 @@ function Home() {
   }
 
   return (
+
     <div className="App">
+
       <h1>Ma liste de courses personnalisée !</h1>
-      <button className='sync'>Synchroniser avec les données du navigateur</button>
+
       <div className='card'>
+
         <input type="text" placeholder='Oignons, Poulet, Jus, ...' id="new_element"></input>
         <input type="number" placeholder='Ex : 4' id="quantite"></input>
+
         <button id="button" onClick={() => search()}>Ajouter</button>
+
+        <div className='separator'></div>
+
       </div>
+
       <div className='card big' id="card"></div>
+
       <div className='minion'></div>
-    </ div >
+
+    </div >
+
   );
 }
 

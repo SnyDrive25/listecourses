@@ -2,8 +2,6 @@
     position: relative;
     background-color: rgb(251, 252, 246, .1);
     height: fit-content;
-    padding: 1em;
-    width: 90vw;
     max-width: 750px;
     border-radius: 9px 9px 0 0;
     margin: 0 auto;
@@ -17,7 +15,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     border-radius: 0 0 9px 9px;
-    gap: 50px;
+    gap: 17px;
 }
 
 #button,
@@ -38,13 +36,11 @@
     border: none;
 }
 
-.sync {
+.special {
     color: var(--main-plus);
-    max-width: 92vw;
     font-size: 1.4em;
     background-color: transparent;
     border: .1em solid var(--main-plus);
-    margin-bottom: 4vw;
 }
 
 #input {
@@ -92,9 +88,11 @@
 }
 
 .card p {
-    border-radius: 9px 0 0 9px;
+    border-radius: 9px;
     position: relative;
     width: fit-content;
+    padding-right: 3.5em;
+    margin: 0;
 }
 
 .card p span {
@@ -104,7 +102,8 @@
     border: .1em solid var(--dark);
     color: var(--light);
     border-radius: 0 9px 9px 0;
-    right: -1.5em;
+    right: 0em;
+    width: 2em;
     padding: 9px;
 }
 
@@ -112,8 +111,7 @@
     cursor: pointer;
     animation: tremble .07s infinite;
     animation-timing-function: linear;
-    border-color: crimson;
-    color: crimson;
+    filter: brightness(2) sepia(20) hue-rotate(-50deg) saturate(7);
 }
 
 @keyframes tremble {
@@ -122,16 +120,26 @@
     }
 
     44% {
-        transform: rotateZ(2deg) translateX(3px);
+        transform: rotateZ(1deg) translateX(2px);
     }
 
     81% {
-        transform: rotateZ(-2deg) translateX(-3px);
+        transform: rotateZ(-1deg) translateX(-2px);
     }
 
     100% {
         transform: rotateZ(0deg);
     }
+}
+
+.separator {
+    width: 90%;
+    height: .2em;
+    margin: 25px auto;
+    margin-bottom: 10px;
+    background-color: var(--main-plus);
+    opacity: .33;
+    border-radius: .2em;
 }
 
 .card input {
@@ -145,6 +153,11 @@ input {
 
 @media only screen and (min-width: 1200px) {
 
+    .card {
+        padding: 1em;
+        width: 90vw;
+    }
+
     .minion {
         position: fixed;
         bottom: 0;
@@ -155,6 +168,15 @@ input {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+    }
+
+}
+
+@media only screen and (max-width: 1200px) {
+
+    .card {
+        padding: .5em;
+        width: 98vw;
     }
 
 }

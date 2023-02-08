@@ -16,3 +16,28 @@ input,
 div {
   color: var(--dark);
 }
+
+.App p {
+  display: grid;
+  width: 100%;
+  gap: 25px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.App p .info {
+  color: var(--main-plus);
+  font-size: 1.4em;
+  margin: 0;
+  padding: 0;
+}
+
+.App p input {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  border-radius: 9px;
+  color: var(--main-plus);
+  border: 2px solid var(--main-plus);
+}

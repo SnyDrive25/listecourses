@@ -106,12 +106,15 @@
     }
 
     .titles {
-        width: 100%;
-        display: block;
+        width: 100vw;
+        display: flex;
     }
 
     .titles a {
-        display: none;
+        font-size: 1.2em;
+        width: 50%;
+        line-height: 10vh;
+        margin: 0 auto;
     }
 
     .titles #login {

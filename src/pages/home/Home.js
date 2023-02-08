@@ -72,19 +72,8 @@ function Home() {
 
     if (JSON.parse(localStorage.getItem("liste")) !== null && JSON.parse(localStorage.getItem("liste")) !== undefined) {
 
-      if (textArray.length < JSON.parse(localStorage.getItem("liste")).length) {
-
-        setListe(textArray);
-        localStorage.setItem("liste", JSON.stringify(textArray));
-
-      }
-
-      else {
-
-        setListe(textArray);
-        localStorage.setItem("liste", JSON.stringify(textArray));
-
-      }
+      setListe(textArray);
+      localStorage.setItem("liste", JSON.stringify(textArray));
 
     }
 
@@ -97,6 +86,26 @@ function Home() {
 
     while (ptags.length > 0) {
       ptags[0].parentNode.removeChild(ptags[0]);
+    }
+
+  }
+
+  // Cette fonction permet de supprimer les éléments par leur nom (utile pour éviter les doublons de nom dans la liste)
+  function deleteElement(element) {
+
+    let div = document.getElementById("card");
+    let ptags = div.getElementsByTagName("p");
+
+    var liste_a_supprimer = [];
+
+    for (let i = 0; i < ptags.length; i++) {
+      if (ptags[i].firstChild.textContent === element) {
+        liste_a_supprimer.push(i);
+      }
+    }
+
+    for (let i = 0; i < liste_a_supprimer.length; i++) {
+      ptags[0].parentNode.removeChild(ptags[liste_a_supprimer[i] - i]);
     }
 
   }
@@ -118,35 +127,38 @@ function Home() {
 
     else {
 
-      element = element[0].charAt(0).toUpperCase() + element.slice(1).toLowerCase();    // Pour avoir l'élement écrit avec une première lettre en majuscule et les autres en minuscule
+      element = element.toLowerCase();    // Pour avoir l'élement écrit en minuscules
 
-      if (liste.includes(element)) {
-
-        alert("Cet élément est déjà dans la liste !");      // On avertit l'utilisateur si l'élément est déjà dans la liste
-
+      for (let i = 0; i < liste.length; i++) {
+        if (liste[i][0].toLowerCase() === element.toLowerCase()) {
+          deleteElement(element);   // si l'élément existait déjà dans la table, on retire l'ancienne verison pour avoir la nouvelle quantité
+          liste.pop(liste[i]);
+        }
       }
 
-      else {
+      liste.push([element.toLowerCase(), quantite]);
 
-        if (element !== "") {
+      setListe(liste);
 
-          var old_list = JSON.parse(localStorage.getItem("liste"));      // on récupère la liste actuelle
+      localStorage.setItem("liste", JSON.stringify(liste));
 
-          setListe([...old_list, [element, quantite]]);                  // on ajoute le nouvel élément dans le tableau
+      if (element !== "") {
 
-          var code_element = element.replaceAll(" ", "_").toLowerCase(); // on génère un id à partir du nom de l'élément
+        var old_list = JSON.parse(localStorage.getItem("liste"));      // on récupère la liste actuelle
 
-          document.getElementById("card").innerHTML += "<p id='e" + code_element + "' onclick='e" + code_element + ".parentNode.removeChild(e" + code_element + ")'>" + element + "<span>" + quantite + "</span></p>";
-          // Là on ajoute dans le html l'élément écrit et on lui donne une propriété onclick pour qu'il puisse être retiré en cliquant dessus
-          // Remarque : j'ai ajouté un 'e' devant l'id et les références de l'id car sinon, si l'élément commence par un chiffre (ex : 2kg de riz), l'id ne sera pas valide car commençant par un chiffre !
+        setListe([...old_list, [element, quantite]]);                  // on ajoute le nouvel élément dans le tableau
 
-          localStorage.setItem("liste", JSON.stringify(liste));          // on met à jour la variable du localstorage
+        var code_element = element.replaceAll(" ", "_").toLowerCase(); // on génère un id à partir du nom de l'élément
 
-          // on réinitialise nos deux zones de texte
-          document.getElementById("new_element").value = '';
-          document.getElementById("quantite").value = '';
+        document.getElementById("card").innerHTML += "<p id='e" + code_element + "' onclick='e" + code_element + ".parentNode.removeChild(e" + code_element + ")'>" + element + "<span>" + quantite + "</span></p>";
+        // Là on ajoute dans le html l'élément écrit et on lui donne une propriété onclick pour qu'il puisse être retiré en cliquant dessus
+        // Remarque : j'ai ajouté un 'e' devant l'id et les références de l'id car sinon, si l'élément commence par un chiffre (ex : 2kg de riz), l'id ne sera pas valide car commençant par un chiffre !
 
-        }
+        localStorage.setItem("liste", JSON.stringify(liste));          // on met à jour la variable du localstorage
+
+        // on réinitialise nos deux zones de texte
+        document.getElementById("new_element").value = '';
+        document.getElementById("quantite").value = '';
 
       }
 
@@ -156,11 +168,72 @@ function Home() {
 
   }
 
+  function sync() {
+
+    var url = document.getElementById("url").value;
+
+    fetch(url + '/register')
+      .then(res => res.json())
+      .then(data => {
+        if (localStorage.getItem('id') === null) {
+          localStorage.setItem('id', JSON.stringify(data.id));
+        }
+        localStorage.setItem("server_id", JSON.stringify(data.id));
+        localStorage.setItem("server_liste", JSON.stringify(Object.values(data.courses)));
+
+        var maliste = JSON.parse(localStorage.getItem('liste'));
+        var severliste = JSON.parse(localStorage.getItem('server_liste'));
+
+        var differences = [];
+        var pair = {};
+
+        for (let i = 0; i < maliste.length; i++) {
+          var dejala = false;
+          for (let j = 0; j < severliste.length; j++) {
+            if (severliste[j].produit === maliste[i][0]) {
+              pair = {};
+              pair.produit = severliste[j].produit;
+              pair.qte = JSON.stringify(maliste[i][1] - JSON.parse(severliste[j].qte));
+              differences.push(pair);
+              dejala = true;
+            }
+          }
+          if (dejala === false) {
+            pair = {};
+            pair.produit = maliste[i][0];
+            pair.qte = maliste[i][1];
+            differences.push(pair);
+          }
+        }
+
+        var id = localStorage.getItem('id').replaceAll('"', '');
+
+        console.log("Sending succeed !\nid=" + id + "&chg=" + JSON.stringify(differences));
+
+        fetch(url + '/courses', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'id=' + id + '&chg=' + JSON.stringify(differences)
+        });
+
+      });
+
+  }
+
   return (
 
     <div className="App">
 
       <h1>Ma liste de courses personnalisée !</h1>
+
+      <p>
+
+        <span className='info'>URL du serveur (modifiable) :</span>
+        <input type="text" defaultValue="https://esilv.olfsoftware.fr/td5" id="url"></input>
+
+        <button className="special btn" onClick={() => sync()}>Envoyer la liste au serveur</button>
+
+      </p>
 
       <div className='card'>
 

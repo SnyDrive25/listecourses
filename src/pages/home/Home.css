@@ -42,9 +42,15 @@
 
 .special {
     color: var(--main-plus);
+    width: 400px !important;
+    max-width: 95vw !important;
     font-size: 1.4em;
     background-color: transparent;
     border: .1em solid var(--main-plus);
+}
+
+.special:hover {
+    filter: brightness(.81) !important;
 }
 
 #input {

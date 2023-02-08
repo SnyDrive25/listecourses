@@ -6,6 +6,8 @@ function Home() {
 
   var [liste, setListe] = useState([]);
 
+  var [message, setMessage] = useState("");
+
 
   // Si le localStorage n'existe pas ou que sa taille est nulle, on l'initialise à un tableau nul, sinon, on y touche pas !
 
@@ -218,6 +220,46 @@ function Home() {
 
       });
 
+    document.getElementById("alertmessage").style.display = "block";
+
+    document.getElementById("new_element").focus();
+
+    setMessage("Liste envoyée !");
+
+    setTimeout(() => {
+      document.getElementById("alertmessage").style.display = "none";
+      setMessage("");
+    }, 4000);
+
+  }
+
+  function getListe() {
+
+    var url = document.getElementById("url").value;
+
+    fetch(url + '/register')
+      .then(res => res.json())
+      .then(data => {
+        localStorage.setItem("id", JSON.stringify(data.id));
+        var mylist = [];
+        for (let i = 0; i < data.courses.length; i++) {
+          mylist.push([data.courses[i].produit, data.courses[i].qte]);
+        }
+        console.log(JSON.stringify(mylist));
+        setListe(mylist);
+        localStorage.setItem("liste", JSON.stringify(mylist));
+      });
+
+    document.getElementById("alertmessage").style.display = "block";
+
+    document.getElementById("new_element").focus();
+
+    setMessage("Liste récupérée !");
+
+    setTimeout(() => {
+      document.getElementById("alertmessage").style.display = "none";
+    }, 4000);
+
   }
 
   return (
@@ -230,6 +272,8 @@ function Home() {
 
         <span className='info'>URL du serveur (modifiable) :</span>
         <input type="text" defaultValue="https://esilv.olfsoftware.fr/td5" id="url"></input>
+
+        <button className="special btn" onClick={() => getListe()}>Récupérer la liste au serveur</button>
 
         <button className="special btn" onClick={() => sync()}>Envoyer la liste au serveur</button>
 
@@ -250,6 +294,8 @@ function Home() {
       <div className='card big' id="card"></div>
 
       <div className='minion'></div>
+
+      <div id="alertmessage">{message}</div>
 
     </div >
 

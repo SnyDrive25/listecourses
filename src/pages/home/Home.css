@@ -8,7 +8,9 @@
 }
 
 .big {
-    margin-bottom: 4vw auto;
+    margin: 0 auto;
+    z-index: 2;
+    margin-bottom: 25vh;
     height: auto;
     overflow-y: visible;
     display: flex;
@@ -16,6 +18,7 @@
     flex-direction: row;
     border-radius: 0 0 9px 9px;
     gap: 17px;
+    backdrop-filter: blur(2em);
 }
 
 .btn,
@@ -47,10 +50,41 @@
     font-size: 1.4em;
     background-color: transparent;
     border: .1em solid var(--main-plus);
+    transition: all.2s;
 }
 
 .special:hover {
     filter: brightness(.81) !important;
+}
+
+.special:target,
+.special:active,
+.special:focus {
+    animation: pressed .4s;
+}
+
+@keyframes pressed {
+
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(.9);
+        background-color: var(--main-plus);
+        color: var(--main);
+    }
+
+    75% {
+        transform: scale(1.05);
+        background-color: var(--main-plus);
+        color: var(--main);
+    }
+
+    100% {
+        transform: scale(.99);
+    }
+
 }
 
 #input {
@@ -161,7 +195,7 @@ input {
     opacity: 1 !important;
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1300px) {
 
     .card {
         padding: 1em;
@@ -195,7 +229,7 @@ input {
 
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1300px) {
 
     .card {
         padding: .5em;
@@ -212,4 +246,20 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
     appearance: textfield;
+}
+
+#alertmessage {
+    display: none;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 40px 0px;
+    font-size: 1.4em;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: fit-content;
+    background-color: var(--dark);
+    color: var(--light);
 }

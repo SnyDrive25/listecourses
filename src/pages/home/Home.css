@@ -25,7 +25,7 @@
 .sync {
     margin-left: auto;
     margin-right: auto;
-    margin: 15px auto;
+    margin: 0 auto;
     border-radius: 9px;
     padding: 9px;
 }
@@ -37,6 +37,7 @@
     color: var(--light);
     font-size: 1.7em;
     border: none;
+    margin: 9px auto !important;
 }
 
 .red {
@@ -50,6 +51,7 @@
     font-size: 1.4em;
     background-color: transparent;
     border: .1em solid var(--main-plus);
+    margin: 0 auto !important;
     transition: all.2s;
 }
 
@@ -265,4 +267,31 @@ input[type=number] {
     height: fit-content;
     background-color: var(--dark);
     color: var(--light);
+}
+
+.smalls {
+    transform: translateY(-28px) !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    max-width: 580px !important;
+    margin: 0 auto !important;
+}
+
+.small {
+    margin: 0 auto !important;
+    padding: 0 !important;
+    width: 125px !important;
+    height: 125px !important;
+    line-height: 125px !important;
+    border-radius: 125px !important;
+}
+
+#details {
+    display: none;
+    opacity: 0;
+}
+
+#showparam {
+    margin-bottom: 50px !important;
 }

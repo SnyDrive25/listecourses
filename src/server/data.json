@@ -1,0 +1,16 @@
+[
+    {
+        "id": "c528c9d7c7sdc48d14fd8c6dcd6cc22",
+        "courses": [
+            {
+                "produit": "baguette",
+                "qte": "10"
+            },
+            {
+                "produit": "bananes",
+                "qte": "2"
+            }
+        ],
+        "seq": "1"
+    }
+]

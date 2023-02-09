@@ -8,6 +8,7 @@ function Home() {
 
   var [message, setMessage] = useState("");
 
+  const [param, setParam] = useState(false);
 
   // Si le localStorage n'existe pas ou que sa taille est nulle, on l'initialise à un tableau nul, sinon, on y touche pas !
 
@@ -235,6 +236,8 @@ function Home() {
 
   function getListe() {
 
+    deleteAll();
+
     var url = document.getElementById("url").value;
 
     fetch(url + '/register')
@@ -245,7 +248,7 @@ function Home() {
         for (let i = 0; i < data.courses.length; i++) {
           mylist.push([data.courses[i].produit, data.courses[i].qte]);
         }
-        console.log(JSON.stringify(mylist));
+        deleteAll();
         setListe(mylist);
         localStorage.setItem("liste", JSON.stringify(mylist));
       });
@@ -262,16 +265,39 @@ function Home() {
 
   }
 
+  function showParam() {
+    if (param) {
+      setParam(false);
+      document.getElementById("showparam").textContent = "Afficher les paramètres"
+      document.getElementById("details").style.display = "none";
+      document.getElementById("details").style.opacity = "0";
+    }
+    else {
+      setParam(true);
+      document.getElementById("showparam").textContent = "Masquer les paramètres"
+      document.getElementById("details").style.display = "grid";
+      document.getElementById("details").style.opacity = "1";
+    }
+  }
+
   return (
 
     <div className="App">
 
       <h1 id="focus">Ma liste de courses personnalisée !</h1>
 
-      <p>
+      <button className='special btn' id='showparam' onClick={showParam}>Afficher les paramètres</button>
+
+      <p id='details'>
 
         <span className='info'>URL du serveur (modifiable) :</span>
+
         <input type="text" defaultValue="https://esilv.olfsoftware.fr/td5" id="url"></input>
+
+        <p className='smalls'>
+          <button className="special btn small" onClick={() => document.getElementById('url').value = 'https://web.sunil.fr/courses'}>Sunil</button>
+          <button className="special btn small" onClick={() => document.getElementById('url').value = 'https://esilv.olfsoftware.fr/td5'}>Principal</button>
+        </p>
 
         <button className="special btn" onClick={() => getListe()}>Récupérer la liste au serveur</button>
 

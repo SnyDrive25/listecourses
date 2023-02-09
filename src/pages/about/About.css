@@ -2,43 +2,78 @@
     position: relative;
     width: 100vw;
     text-align: center;
+    padding-top: 6vh;
+}
+
+.page .courses {
+    width: 100vw;
+    height: auto;
+    background-image: url('../../images/courses.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: fit-content;
+    padding-top: 50vh;
+}
+
+.page .courses p {
+    background-color: rgb(251, 252, 246, .17) !important;
+    backdrop-filter: blur(17em) !important;
+    width: 100%;
+    min-height: 50vh;
+    margin: 0 auto;
 }
 
 .social-btns {
-    width: 95%;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    padding: 5vh 0;
+    margin: 0 auto !important;
+    background-color: var(--dark);
     height: auto;
     display: inline-flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    gap: 50px;
 }
 
 .social-btns a {
-    height: 17vw;
-    width: calc(100% / 3);
-    max-height: 100px;
-    margin-top: 5%;
-    line-height: min(22vw, 130px);
+    line-height: 111px;
+    height: 100px;
+    width: 100px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.social-btns a:first-child {
-    border-radius: 25px 0 0 25px;
-}
-
-.social-btns a:last-child {
-    border-radius: 0 25px 25px 0;
+    border-radius: 50px;
 }
 
 .social-btns a:hover {
+    animation: pressed2 .2s;
+    animation-timing-function: linear;
     border-color: transparent;
-    background-color: var(--main);
+    background-color: var(--main-plus);
 }
 
 .social-btns a:hover .fa {
-    color: var(--black);
+    color: var(--dark) !important;
+}
+
+@keyframes pressed2 {
+
+    0% {
+        transform: scale(1);
+    }
+
+    30% {
+        transform: scale(.9);
+    }
+
+    75% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(.99);
+    }
+
 }
 
 .fa {
@@ -47,6 +82,10 @@
 }
 
 @media only screen and (min-width:1000px) {
+
+    .page .courses {
+        padding-bottom: 9vh;
+    }
 
     .fa {
         font-size: min(9vw, 60px);
@@ -63,6 +102,15 @@
         font-size: 1.4em;
     }
 
+    .page .courses p {
+        max-width: 700px;
+        border-radius: 25px;
+    }
+
+    .social-btns a {
+        line-height: 133px;
+    }
+
 }
 
 @media only screen and (max-width:1000px) {
@@ -73,6 +121,10 @@
 
     .contact p {
         font-size: 1.1em;
+    }
+
+    .social-btns a {
+        line-height: 111px;
     }
 
 }
@@ -97,7 +149,7 @@
     align-items: center;
 }
 
-.form p{
+.form p {
     position: relative;
 }
 
@@ -148,7 +200,7 @@ textarea:focus {
 
 label {
     pointer-events: none;
-    position:absolute;
+    position: absolute;
     padding-left: .4em;
     padding-right: .4em;
     font-size: .9em;
@@ -158,7 +210,7 @@ label {
     transition-timing-function: ease;
     transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
     color: var(--main);
-    background-color:var(--black);
+    background-color: var(--black);
     user-select: none;
 }
 

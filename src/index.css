@@ -35,5 +35,5 @@ code {
 }
 
 i {
-  background-color: var(--light);
+  color: var(--main-plus) !important;
 }

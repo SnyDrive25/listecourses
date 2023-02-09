@@ -8,6 +8,7 @@
     text-align: center;
     z-index: 4;
     opacity: 1;
+    border-bottom: .4em solid var(--main);
     background-color: var(--main);
     transition: all.2s;
 }

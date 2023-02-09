@@ -44,7 +44,7 @@ function Home() {
         const retrievedArray = JSON.parse(localStorage.getItem('liste'));
 
         for (let i = 0; i < retrievedArray.length; i++) {
-          if (textArray.includes(retrievedArray[i]) === false) {
+          if (textArray.includes(retrievedArray[i]) === false && retrievedArray[i][1] > 0) {
             var code_element = retrievedArray[i][0].replaceAll(" ", "_").toLowerCase();
             document.getElementById("card").innerHTML += "<p id='e" + code_element + "' onclick='e" + code_element + ".parentNode.removeChild(e" + code_element + ")'>" + retrievedArray[i][0] + "<span>" + retrievedArray[i][1] + "</span></p>";
           }
@@ -166,7 +166,7 @@ function Home() {
 
     }
 
-    document.getElementById("new_element").focus();
+    document.getElementById("focus").focus();
 
   }
 
@@ -252,7 +252,7 @@ function Home() {
 
     document.getElementById("alertmessage").style.display = "block";
 
-    document.getElementById("new_element").focus();
+    document.getElementById("focus").focus();
 
     setMessage("Liste récupérée !");
 
@@ -266,7 +266,7 @@ function Home() {
 
     <div className="App">
 
-      <h1>Ma liste de courses personnalisée !</h1>
+      <h1 id="focus">Ma liste de courses personnalisée !</h1>
 
       <p>
 

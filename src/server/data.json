@@ -1,16 +1,1 @@
-[
-    {
-        "id": "c528c9d7c7sdc48d14fd8c6dcd6cc22",
-        "courses": [
-            {
-                "produit": "baguette",
-                "qte": "10"
-            },
-            {
-                "produit": "bananes",
-                "qte": "2"
-            }
-        ],
-        "seq": "1"
-    }
-]
+{"id":"3da5c70f3174b02a2a5e03f37a50b0c3ae786780d3da577712","courses":[{"produit":"produit","qte":"4"}],"sequence":"1"}

@@ -16,12 +16,12 @@
     $seq = $last["seq"];
 
     $file = fopen('data.json', 'w');
-    $data = array('id' => $random_id, 'courses' => $courses, 'sequence' => $seq);
+    $data += array('id' => $random_id, 'courses' => $courses, 'sequence' => $seq);
     $jsonData = json_encode($data);
     
     fwrite($file, $jsonData);
 
-    fclose($handle);
+    fclose($file);
 
     $output = array(
         "id" => $random_id,

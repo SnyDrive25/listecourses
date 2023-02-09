@@ -41,3 +41,10 @@ div {
   color: var(--main-plus);
   border: 2px solid var(--main-plus);
 }
+
+.App p input:active,
+.App p input:target,
+.App p input:focus {
+  color: var(--dark);
+  border: 2px solid var(--dark);
+}

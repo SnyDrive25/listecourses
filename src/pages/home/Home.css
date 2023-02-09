@@ -257,9 +257,10 @@ input[type=number] {
     display: none;
     z-index: 999;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
+    top: 100px;
+    right: 25px;
+    width: 250px;
+    border-radius: 17px 0 17px 17px;
     padding: 40px 0px;
     font-size: 1.4em;
     font-weight: bold;
@@ -288,6 +289,11 @@ input[type=number] {
 }
 
 #details {
+    width: 100%;
+    max-width: 786px !important;
+    padding: 25px 0;
+    border-radius: 9px !important;
+    background-color: rgb(251, 252, 246, .1);
     display: none;
     opacity: 0;
 }

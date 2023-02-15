@@ -17,6 +17,14 @@
   color: var(--light);
 }
 
+html {
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
 body {
   margin: 0;
   padding: 0;

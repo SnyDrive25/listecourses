@@ -175,7 +175,7 @@ function Home() {
 
     var url = document.getElementById("url").value;
 
-    fetch(url + '/register')
+    fetch(url + '/register.php')
       .then(res => res.json())
       .then(data => {
         if (localStorage.getItem('id') === null) {
@@ -213,7 +213,7 @@ function Home() {
 
         console.log("Sending succeed !\nid=" + id + "&chg=" + JSON.stringify(differences));
 
-        fetch(url + '/courses', {
+        fetch(url + '/courses.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: 'id=' + id + '&chg=' + JSON.stringify(differences)
@@ -240,7 +240,7 @@ function Home() {
 
     var url = document.getElementById("url").value;
 
-    fetch(url + '/register')
+    fetch(url + '/register.php')
       .then(res => res.json())
       .then(data => {
         localStorage.setItem("id", JSON.stringify(data.id));
@@ -278,6 +278,9 @@ function Home() {
       document.getElementById("details").style.display = "grid";
       document.getElementById("details").style.opacity = "1";
     }
+
+    document.getElementById("focus").focus();
+
   }
 
   return (
@@ -296,6 +299,8 @@ function Home() {
 
         <p className='smalls'>
           <button className="special btn small" onClick={() => document.getElementById('url').value = 'https://web.sunil.fr/courses'}>Sunil</button>
+          <button className="special btn small" onClick={() => document.getElementById('url').value = 'https://alexandregros.esilv.olfsoftware.fr/shopList'}>Alexandre</button>
+          <button className="special btn small" onClick={() => document.getElementById('url').value = 'https://lucaskaczmarski.esilv.olfsoftware.fr/Liste_de_Courses'}>Lucas</button>
           <button className="special btn small" onClick={() => document.getElementById('url').value = 'https://esilv.olfsoftware.fr/td5'}>Principal</button>
         </p>
 
